@@ -11,12 +11,12 @@
 
 
   </head>
-  <body class="bg-light">
+  <body class="bg-light bg-gradient">
     <!-- Starting Header  -->
     <header>
 
         <!-- Starting Nav-Bar -->
-        <nav class=" navbar bg-light border-bottom border-3 p-4">
+        <nav class=" navbar bg-light bg-gradient border-bottom border-3 p-4">
             <div class="container-fluid ">
                 <a class="navbar-brand" href="#">
                     <img src="Images/nbc.webp" alt="" width="50" height="40" class="d-inline-block align-text-top">
@@ -32,14 +32,10 @@
         <!-- Ending Nav-Bar -->
 
 
-        
-        <section id="allCategory" class=" container d-flex flex-row justify-content-evenly pt-4 pb-4 fs-4 ">
+
+        <section id="allCategory" class="text-muted container d-flex flex-row justify-content-between pt-4 pb-4 fs-4 ">
 
         </section>
-
-
-
-
 
     </header>
     <!-- Ending Header  -->
@@ -52,7 +48,47 @@
 
 
     <!-- Starting Main  -->
-    <main>
+    <main class="container">
+
+         <!-- found the items -->
+         <div style="margin-top: 40px; margin-bottom: 40px; border-radius: 10px; height: 80px; padding-top: 25px; background-color: white;">
+            <h3 class="fs-5 text"> <span> </span> items found for category Entertainment</h3>
+        </div>
+
+
+
+        <!-- sorting the news -->
+        <section class="d-flex  justify-content-between mb-5">
+            <div>
+                <p class="fs-4">Sort By View:</p>
+            </div>
+
+            <div >
+                <button  class="btn btn-outline-primary btn-lg">Today's News</button>
+                <button class="btn btn-outline-primary btn-lg ms-2">Trending</button>
+            </div>
+        </section>
+
+
+
+        <!-- All News -->
+        <section id="newsContainer">
+            <!-- <div class="card mb-3 w-100">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div> -->
+            </div>
+        </section>
+
 
     </main>
     <!-- Ending Main  -->
@@ -60,12 +96,18 @@
 
 
 
-
+<!-- Link with allnews js file  -->
+<script src="JS/allnews.js"></script>
 
 
 
     <!-- LINK WITH category JS FILE -->
         <script src="JS/category.js"></script>
+
+
+    
+
+
 
     <!-- link with bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

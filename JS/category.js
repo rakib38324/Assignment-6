@@ -14,14 +14,17 @@ const submenu = async() =>{
     const uniqArray = [];
 
     AllData.forEach( Data => {
-        console.log(Data.category_name)
+        // console.log(Data.category_name)
         if(uniqArray.indexOf(Data.category_name) == -1){
                 uniqArray.push(Data.category_name);
         
                 const a = document.createElement("a");
                 a.innerHTML = `
-                    <a  >${Data.category_name}</a>
+                 
+                    <button onclick="TheNewsIs${Data.category_id}()" id="${Data.category_name}" type="button" class="btn">${Data.category_name}</button>
+
                 `;
+                // <a click="Allnews()" id="${Data.category_id}" >${Data.category_name}</a>
                 Menu.appendChild(a)
             }
     });    
@@ -29,3 +32,7 @@ const submenu = async() =>{
 }
 
 submenu()
+
+// document.getElementById('Breaking News').addEventListener('click',function(){
+//     console.log("Click")
+// })
