@@ -10,7 +10,7 @@ function displayBreakingNews(data){
     
     let count = 0;
     for(let news of data){
-        // console.log(news)
+        console.log(news)
         count = count + 1;
 
         const div = document.createElement("div");
@@ -48,7 +48,7 @@ function displayBreakingNews(data){
                                 </div>
 
 
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button id="${news._id}" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i  class="fa-solid fa-arrow-right"></i>
                                 </button>
 
@@ -65,15 +65,17 @@ function displayBreakingNews(data){
 
         BreakingNewsFild.appendChild(div);
 
-
+        
 
         
     }
 
     const countFild = document.getElementById('count');
+    countFild.innerText = ''; 
 
     const p = document.createElement("p");
-    
+
+
     if(count != 0){
         p.innerHTML = `
         <h4 class="ps-4"> ${count} ${"items found for category"} ${"Breaking News"}</h4>
@@ -87,10 +89,21 @@ function displayBreakingNews(data){
     }
 
     countFild.appendChild(p);
-
-
     
 
+
+
+    // for(let news of data){
+
+    //     if(news._id == )
+    // }
+    
+    // // const modalTitleFild = document.getElementById('modalTitle');
+    // //     modalTitleFild.innerText = news.title; 
+
+
+    // //     const modalDetailsFild = document.getElementById('modalDetails');
+    // //     modalDetailsFild.innerText = news.details;
 
 
 
