@@ -1,5 +1,6 @@
-function TheNewsIs01(){
-    fetch('https://openapi.programming-hero.com/api/news/category/01')
+function TheNews(data){
+    console.log(data)
+    fetch(`https://openapi.programming-hero.com/api/news/category/0${data}`)
     .then( responce => responce.json())
     .then( data => displayBreakingNews(data.data))
 }
@@ -7,6 +8,7 @@ function TheNewsIs01(){
 function displayBreakingNews(data){
 
     const BreakingNewsFild =document.getElementById('BreakingNewsContainer');
+    BreakingNewsFild.innerText = '';
     
     let count = 0;
     for(let news of data){
@@ -14,6 +16,7 @@ function displayBreakingNews(data){
         count = count + 1;
 
         const div = document.createElement("div");
+
 
         div.innerHTML = `
             <div class="card mb-3 w-100">
@@ -78,7 +81,7 @@ function displayBreakingNews(data){
 
     if(count != 0){
         p.innerHTML = `
-        <h4 class="ps-4"> ${count} ${"items found for category"} ${"Breaking News"}</h4>
+        <h4 class="ps-4"> ${count} ${"items found for category"} </h4>
     `;
     }
 
