@@ -21,12 +21,14 @@ const submenu = async() =>{
                 const a = document.createElement("a");
                 a.innerHTML = `
                  
-                    <button onclick="TheNewsIs${Data.category_id}()" id="${Data.category_name}" type="button" class="btn">${Data.category_name}</button>
+                    <button onclick="TheNewsIs${Data.category_id}(); this.disabled=true;" id="${Data.category_name}"  type="button" class="btn">${Data.category_name}</button>
 
                 `;
                 // <a click="Allnews()" id="${Data.category_id}" >${Data.category_name}</a>
                 Menu.appendChild(a)
             }
+
+            
     });    
 
 }

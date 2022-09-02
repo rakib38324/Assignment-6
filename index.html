@@ -1,115 +1,144 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NCB News</title>
 
-    <!-- link with bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCB News</title>
+
+  <!-- font Awesome -->
+  <script src="https://kit.fontawesome.com/77fa43837d.js" crossorigin="anonymous"></script>
 
 
-
-  </head>
-  <body class="bg-light bg-gradient">
-    <!-- Starting Header  -->
-    <header>
-
-        <!-- Starting Nav-Bar -->
-        <nav class=" navbar bg-light bg-gradient border-bottom border-3 p-4">
-            <div class="container-fluid ">
-                <a class="navbar-brand" href="#">
-                    <img src="Images/nbc.webp" alt="" width="50" height="40" class="d-inline-block align-text-top">
-                </a>
-
-                <div class="d-flex justify-content-end">
-                    <a class="navbar-brand text-primary fw-bold pe-4" href="#">All News</a>
-                    <a class="navbar-brand text-primary fw-bold" href="#">Blog</a>
-                </div>
-            </div>
-            
-          </nav>
-        <!-- Ending Nav-Bar -->
+  <!-- link with bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 
 
-        <section id="allCategory" class="text-muted container d-flex flex-row justify-content-between pt-4 pb-4 fs-4 ">
+</head>
 
-        </section>
+<body class="bg-light bg-gradient">
+  <!-- Starting Header  -->
+  <header>
 
-    </header>
-    <!-- Ending Header  -->
+    <!-- Starting Nav-Bar -->
+    <nav class=" navbar bg-light bg-gradient border-bottom border-3 p-4">
+      <div class="container-fluid ">
+        <a class="navbar-brand" href="#">
+          <img src="Images/nbc.webp" alt="" width="50" height="40" class="d-inline-block align-text-top">
+        </a>
 
-
-
-
-
-
-
-
-    <!-- Starting Main  -->
-    <main class="container">
-
-         <!-- found the items -->
-         <div style="margin-top: 40px; margin-bottom: 40px; border-radius: 10px; height: 80px; padding-top: 25px; background-color: white;">
-            <h3 class="fs-5 text"> <span> </span> items found for category Entertainment</h3>
+        <div class="d-flex justify-content-end">
+          <a class="navbar-brand text-primary fw-bold pe-4" href="#">All News</a>
+          <a class="navbar-brand text-primary fw-bold" href="#">Blog</a>
         </div>
+      </div>
+
+    </nav>
+    <!-- Ending Nav-Bar -->
 
 
 
-        <!-- sorting the news -->
-        <section class="d-flex  justify-content-between mb-5">
-            <div>
-                <p class="fs-4">Sort By View:</p>
-            </div>
+    <section id="allCategory" class="text-muted container d-flex flex-row justify-content-between pt-4 pb-4 fs-4 ">
 
-            <div >
-                <button  class="btn btn-outline-primary btn-lg">Today's News</button>
-                <button class="btn btn-outline-primary btn-lg ms-2">Trending</button>
-            </div>
-        </section>
+    </section>
 
-
-
-        <!-- All News -->
-        <section id="newsContainer">
-            <!-- <div class="card mb-3 w-100">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-                </div> -->
-            </div>
-        </section>
-
-
-    </main>
-    <!-- Ending Main  -->
+  </header>
+  <!-- Ending Header  -->
 
 
 
 
-<!-- Link with allnews js file  -->
-<script src="JS/allnews.js"></script>
 
 
 
-    <!-- LINK WITH category JS FILE -->
-        <script src="JS/category.js"></script>
+
+  <!-- Starting Main  -->
+  <main class="container">
+
+    <!-- found the items -->
+    <div
+      style="margin-top: 40px; margin-bottom: 40px; border-radius: 10px; height: 80px; padding-top: 25px; background-color: white;">
+      <h3 id="count" class="fs-5 text"> </h3>
+    </div>
+
+
+
+    <!-- sorting the news -->
+    <section class="d-flex  justify-content-between mb-5">
+      <div>
+        <p class="fs-4">Sort By View:</p>
+      </div>
+
+      <div>
+        <button onclick="TheNewsIs01(); this.disabled=true;" class="btn btn-outline-primary btn-lg">Today's
+          News</button>
+        <button class="btn btn-outline-primary btn-lg ms-2">Trending</button>
+      </div>
+    </section>
+
+
+
+    <!-- All News -->
+    <section id="BreakingNewsContainer">
+
+    </section>
+
+
 
 
     
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">News</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+
+          
+          <h5 id="modalTitle" class="card-title"> hello</h5>
+          <p id="modalDetails" class="card-text pb-5"> hello</p>
+
+
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <!-- Ending Main  -->
 
 
 
-    <!-- link with bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  </body>
+
+  <!-- Link with allnews js file  -->
+  <script src="JS/breakingNew.js"></script>
+
+
+
+  <!-- LINK WITH category JS FILE -->
+  <script src="JS/category.js"></script>
+
+
+
+
+
+
+  <!-- link with bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
