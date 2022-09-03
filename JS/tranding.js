@@ -72,7 +72,7 @@ function displayTrandingNews(data) {
                                 <button onclick="ShowModal('${news.title.replace(/'/g, '')}',
                                 '${news.image_url.replace(/'/g, '')}',
                                 '${news.details.replace(/'/g, '').replace(/"/g, '')}')" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i  class="fa-solid fa-arrow-right"></i>
+                                <i  class="fa-solid fa-arrow-right fs-4 text text-primary px-0"></i>
                                 </button>
 
                             </div>
