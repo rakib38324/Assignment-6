@@ -26,7 +26,7 @@ function blogs(){
                 x = 4; //OK <br>
                 y = 5; //OK <br>
                 z = 6; //Error</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            
 
 
             <p>
@@ -70,7 +70,7 @@ function blogs(){
             
 
             
-        
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
     </div>
 
@@ -275,7 +275,7 @@ function blogs(){
 
            
 
-            <p class="card-text"><small class="text-muted">Last updated 45 mins ago</small></p>
+            <p class="card-text"><small class="text-muted">Last updated 50 mins ago</small></p>
 
 
             
