@@ -1,24 +1,43 @@
+
 function TheNews(data){
-    console.log(data)
+    // console.log(data)
     fetch(`https://openapi.programming-hero.com/api/news/category/0${data}`)
     .then( responce => responce.json())
     .then( data => displayBreakingNews(data.data))
 }
+
+const h = trandingArray = [];
+console.log(trandingArray);
+
 
 function displayBreakingNews(data){
 
     const BreakingNewsFild =document.getElementById('BreakingNewsContainer');
     BreakingNewsFild.innerText = '';
     
+
     let count = 0;
     for(let news of data){
-        console.log(news)
+        // console.log(news)
         count = count + 1;
 
+       
+        const trandind = news.others_info.is_trending
+
+        if(trandind == true){
+            trandingArray.push(news);
+        }
+
+        console.log(trandingArray)
+
+
+        
+        
         const div = document.createElement("div");
 
 
-        div.innerHTML = `
+        
+            div.innerHTML = `
             <div class="card mb-3 w-100">
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -27,7 +46,7 @@ function displayBreakingNews(data){
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${news.title}</h5>
-                            <p class="card-text pb-5" style="${"white-space: nowrap;  overflow: hidden; text-overflow: ellipsis;"}">${news.details}</p>
+                            <p class="card-text pb-5" >${news.details.length > 100 ? news.details.slice(0,100) + "...": news.details}</p>
 
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex">
@@ -51,7 +70,9 @@ function displayBreakingNews(data){
                                 </div>
 
 
-                                <button id="${news._id}" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button onclick="ShowModal('${news.title.replace(/'/g, '')}',
+                                '${news.image_url.replace(/'/g,'')}',
+                                '${news.details.replace(/'/g,'').replace(/"/g,'')}')" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i  class="fa-solid fa-arrow-right"></i>
                                 </button>
 
@@ -65,6 +86,8 @@ function displayBreakingNews(data){
                 </div>
             </div>
         `;
+        
+        
 
         BreakingNewsFild.appendChild(div);
 
@@ -72,6 +95,10 @@ function displayBreakingNews(data){
 
         
     }
+
+
+
+    // count the news
 
     const countFild = document.getElementById('count');
     countFild.innerText = ''; 
@@ -81,38 +108,39 @@ function displayBreakingNews(data){
 
     if(count != 0){
         p.innerHTML = `
-        <h4 class="ps-4"> ${count} ${"items found for category"} </h4>
+        <h4 class="ps-4"> ${count} ${"items found of this category"} </h4>
     `;
     }
 
     else{
         p.innerHTML = `
-        <h4 class="ps-4"> ${"No items found for category"} ${"Breaking News"}</h4>
+        <h4 class="ps-4"> ${"No items found of this category"} </h4>
     `;
     }
 
     countFild.appendChild(p);
+
     
-
-
-
-    // for(let news of data){
-
-    //     if(news._id == )
-    // }
-    
-    // // const modalTitleFild = document.getElementById('modalTitle');
-    // //     modalTitleFild.innerText = news.title; 
-
-
-    // //     const modalDetailsFild = document.getElementById('modalDetails');
-    // //     modalDetailsFild.innerText = news.details;
-
 
 
 }
 
 
+
+
+function ShowModal(title,image,discription){
+    // console.log("click",title,image,discription)
+    const modalBodyFild = document.getElementById('modalBody');
+    modalBodyFild.innerHTML = ``;
+    modalBodyFild.innerHTML = `
+
+        <img src="${image}" class="img-fluid rounded-start pb-3" alt="...">
+        <h5 id="modalTitle" class="card-title pb-3">${title}</h5>
+        <p id="modalDetails" class="card-text pb-5">${discription}</p>
+    
+    `;
+
+}
 
 
 
