@@ -1,42 +1,33 @@
-function TheNews(data){
+function TrandingNews() {
     // console.log(data)
-    fetch(`https://openapi.programming-hero.com/api/news/category/0${data}`)
-    .then( responce => responce.json())
-    .then( data => displayBreakingNews(data.data))
+    fetch(`https://openapi.programming-hero.com/api/news/category/08`)
+        .then(responce => responce.json())
+        .then(data => displayTrandingNews(data.data))
 }
 
-trandingArray = [];
-console.log(trandingArray);    
 
 
-function displayBreakingNews(data){
+function displayTrandingNews(data) {
 
-    const BreakingNewsFild =document.getElementById('BreakingNewsContainer');
-    BreakingNewsFild.innerText = '';
+    const TrandingContainerFild = document.getElementById('TrandingContainer');
+    TrandingContainerFild.innerText = '';
+
     
-    
-
     let count = 0;
-    for(let news of data){
+
+    for (let news of data) {
         // console.log(news)
-        count = count + 1;
+        
 
-       
         const trandind = news.others_info.is_trending;
+        // console.log(trandind)
+        if (trandind == true) {
 
-        if(trandind == true){
-            trandingArray.push(news);
-        }
+            count = count + 1;
+            // console.log(news)
 
-        console.log(trandingArray);
+            const div = document.createElement("div");
 
-
-        
-        
-        const div = document.createElement("div");
-
-
-        
             div.innerHTML = `
             <div class="card mb-3 w-100">
                     <div class="row g-0">
@@ -46,7 +37,7 @@ function displayBreakingNews(data){
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${news.title}</h5>
-                            <p class="card-text pb-5" >${news.details.length > 100 ? news.details.slice(0,100) + "...": news.details}</p>
+                            <p class="card-text pb-5" >${news.details.length > 100 ? news.details.slice(0, 100) + "..." : news.details}</p>
 
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex">
@@ -71,8 +62,8 @@ function displayBreakingNews(data){
 
 
                                 <button onclick="ShowModal('${news.title.replace(/'/g, '')}',
-                                '${news.image_url.replace(/'/g,'')}',
-                                '${news.details.replace(/'/g,'').replace(/"/g,'')}')" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                '${news.image_url.replace(/'/g, '')}',
+                                '${news.details.replace(/'/g, '').replace(/"/g, '')}')" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i  class="fa-solid fa-arrow-right"></i>
                                 </button>
 
@@ -81,19 +72,23 @@ function displayBreakingNews(data){
                             
                             
                             
+                            </div>
                         </div>
-                  </div>
+                    </div>
                 </div>
-            </div>
-        `;
-        
-        
+            `;
 
-        BreakingNewsFild.appendChild(div);
+        TrandingContainerFild.appendChild(div);
 
-        
+        }
 
         
+
+        
+
+
+
+
     }
 
 
@@ -101,18 +96,18 @@ function displayBreakingNews(data){
 
 
     const countFild = document.getElementById('count');
-    countFild.innerText = ''; 
+    countFild.innerText = '';
 
     const p = document.createElement("p");
 
 
-    if(count != 0){
+    if (count != 0) {
         p.innerHTML = `
         <h4 class="ps-4"> ${count} ${"items found of this category"} </h4>
     `;
     }
 
-    else{
+    else {
         p.innerHTML = `
         <h4 class="ps-4"> ${"No items found of this category"} </h4>
     `;
@@ -120,12 +115,10 @@ function displayBreakingNews(data){
 
     countFild.appendChild(p);
 
-    
+
 
 
 }
-
-
 
 
 function ShowModal(title,image,discription){
@@ -141,5 +134,3 @@ function ShowModal(title,image,discription){
     `;
 
 }
-
-
