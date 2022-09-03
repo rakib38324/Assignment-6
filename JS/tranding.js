@@ -16,7 +16,7 @@ function TrandingNews() {
 
 function displayTrandingNews(data) {
 
-    const TrandingContainerFild = document.getElementById('TrandingContainer');
+    const TrandingContainerFild = document.getElementById('BreakingNewsContainer');
     TrandingContainerFild.innerHTML = ``;
     // BreakingNewsFild.innerText= "";  
 
