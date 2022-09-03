@@ -12,7 +12,7 @@ console.log(trandingArray);
 function displayBreakingNews(data){
 
     const BreakingNewsFild =document.getElementById('BreakingNewsContainer');
-    BreakingNewsFild.innerText = '';
+    BreakingNewsFild.innerHTML = ``;
     
     
 

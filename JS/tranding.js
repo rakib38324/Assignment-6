@@ -10,7 +10,7 @@ function TrandingNews() {
 function displayTrandingNews(data) {
 
     const TrandingContainerFild = document.getElementById('TrandingContainer');
-    TrandingContainerFild.innerText = '';
+    TrandingContainerFild.innerHTML = ``;
 
     
     let count = 0;
