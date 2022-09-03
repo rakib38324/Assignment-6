@@ -1,19 +1,29 @@
+const spinner = document.getElementById('spinner');
+
 function TheNews(data){
-    // console.log(data)
+    
+    
+    spinner.classList.remove('d-none')
+    
+    
+    
     fetch(`https://openapi.programming-hero.com/api/news/category/0${data}`)
     .then( responce => responce.json())
     .then( data => displayBreakingNews(data.data))
+
+    
 }
 
 trandingArray = [];
-console.log(trandingArray);    
+// console.log(trandingArray);    
 
 
 function displayBreakingNews(data){
+    spinner.classList.add('d-none')
 
     const BreakingNewsFild =document.getElementById('BreakingNewsContainer');
     BreakingNewsFild.innerHTML = ``;
-    
+    BreakingNewsFild.innerText= "";
     
 
     let count = 0;
@@ -28,9 +38,9 @@ function displayBreakingNews(data){
             trandingArray.push(news);
         }
 
-        console.log(trandingArray);
+        // console.log(trandingArray);
 
-
+        
         
         
         const div = document.createElement("div");
@@ -91,7 +101,7 @@ function displayBreakingNews(data){
 
         BreakingNewsFild.appendChild(div);
 
-        
+        spinner.classList.add('d-none')
 
         
     }

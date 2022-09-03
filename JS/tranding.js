@@ -1,8 +1,15 @@
+
 function TrandingNews() {
+    const spinner = document.getElementById('spinner');
+
+    spinner.classList.remove('d-none')
+
     // console.log(data)
     fetch(`https://openapi.programming-hero.com/api/news/category/08`)
         .then(responce => responce.json())
         .then(data => displayTrandingNews(data.data))
+
+        
 }
 
 
@@ -11,6 +18,7 @@ function displayTrandingNews(data) {
 
     const TrandingContainerFild = document.getElementById('TrandingContainer');
     TrandingContainerFild.innerHTML = ``;
+    // BreakingNewsFild.innerText= "";  
 
     
     let count = 0;
@@ -80,11 +88,13 @@ function displayTrandingNews(data) {
 
         TrandingContainerFild.appendChild(div);
 
+        
+
         }
 
         
 
-        
+        spinner.classList.add('d-none');
 
 
 
